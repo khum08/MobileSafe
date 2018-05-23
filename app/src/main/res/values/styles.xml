@@ -1,11 +1,37 @@
 <resources>
-
+    <!--====================================================
+    存放activity主题
+       ===================================================-->
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.ActionBar" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">6sp</item>
+        <item name="android:textColor">@android:color/holo_red_light</item>
+    </style>
+
+    <style name="padding_testsize">
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:paddingLeft">@dimen/content_padding_left</item>
+        <item name="android:paddingRight">@dimen/content_padding_right</item>
+        <item name="android:paddingTop">@dimen/content_padding_top</item>
+        <item name="android:paddingBottom">@dimen/content_padding_bottom</item>
+    </style>
+
 
 </resources>

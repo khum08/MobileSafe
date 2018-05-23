@@ -1,4 +1,4 @@
-package com.kotlin.khum.mobilesafe.ui
+package com.kotlin.khum.mobilesafe.ui.main
 
 import com.kotlin.khum.mobilesafe.R
 import com.kotlin.khum.mobilesafe.global.BaseActivity
@@ -11,6 +11,9 @@ import com.kotlin.khum.mobilesafe.global.BaseActivity
  * </pre>
  */
 class SplashActivity: BaseActivity() {
+    override fun initView() {
+    }
+
     override fun attachLayoutRes(): Int = R.layout.activity_splash
 
 }
