@@ -3,7 +3,9 @@
     <!--=================字体大小====================-->
     <dimen name="text_normal">@dimen/text_size16</dimen>
     <dimen name="text_title">@dimen/text_size18</dimen>
+    <dimen name="text_small">@dimen/text_size14</dimen>
     <dimen name="text_hint">@dimen/text_size14</dimen>
+
 
     <!--====================================================
     为统一风格 不期望直接访问下面的值

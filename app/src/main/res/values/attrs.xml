@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CheckableItem">
+        <!--创建自定义属性-->
+        <attr name="topText" format="string|reference"/>
+        <attr name="bottomText" format="string|reference"/>
+    </declare-styleable>
+</resources>
