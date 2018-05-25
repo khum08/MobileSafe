@@ -20,12 +20,8 @@ import com.kotlin.khum.mobilesafe.R;
  *     desc   :
  * </pre>
  */
-public class CheckableItem extends RelativeLayout {
+public class  CheckableItem extends RelativeLayout {
 
-    private static final String NAME = "http://schemas.khum";
-    private String mTopText;
-    private String mBottomText;
-    private TextView mTvTop;
     private TextView mTvBottom;
     private CheckBox mCheckBox;
 
@@ -48,20 +44,18 @@ public class CheckableItem extends RelativeLayout {
     }
 
     private void initView(Context context, AttributeSet attrs) {
-//        mTopText = attrs.getAttributeValue(NAME, "topText");
-//        mBottomText = attrs.getAttributeValue(NAME, "bottomText");
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CheckableItem);
-        mTopText = typedArray.getText(R.styleable.CheckableItem_topText).toString();
-        mBottomText = typedArray.getText(R.styleable.CheckableItem_bottomText).toString();
+        String topText = typedArray.getText(R.styleable.CheckableItem_topText).toString();
+        String bottomText = typedArray.getText(R.styleable.CheckableItem_bottomText).toString();
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.item_checkable, this);
-        mTvTop = findViewById(R.id.tv_top);
+        TextView tvTop = findViewById(R.id.tv_top);
         mTvBottom = findViewById(R.id.tv_bottom);
         mCheckBox = findViewById(R.id.checkbox);
 
-        mTvTop.setText(mTopText);
-        mTvBottom.setText(mBottomText);
+        tvTop.setText(topText);
+        mTvBottom.setText(bottomText);
         typedArray.recycle();//清理资源，回收资源，为了防止下一次使用的时候造成影响
     }
 

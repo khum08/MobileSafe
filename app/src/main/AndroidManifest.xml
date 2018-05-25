@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".ui.main.SplashActivity"/>
         <activity android:name=".ui.setting.SettingActivity"/>
+        <activity android:name=".ui.guard.GuardActivity"/>
     </application>
 
 </manifest>
