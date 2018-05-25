@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tool_bar"
     app:title="标题"
     app:titleTextColor="@color/color_white"
     >
