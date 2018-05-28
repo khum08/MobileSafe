@@ -6,6 +6,7 @@ import android.view.View
 import com.kotlin.khum.mobilesafe.R
 import com.kotlin.khum.mobilesafe.global.BaseActivity
 import kotlinx.android.synthetic.main.activity_setting.*
+import kotlinx.android.synthetic.main.common_title.*
 
 /**
  * <pre>
@@ -25,6 +26,7 @@ class SettingActivity:BaseActivity(){
     override fun attachLayoutRes(): Int = R.layout.activity_setting
 
     override fun initView() {
+        tool_bar.title = "设置"
         auto_update.setOnClickListener(View.OnClickListener {
             if (auto_update.isChecked){
                 auto_update.setBottomText("自动更新关闭")

@@ -8,6 +8,7 @@
     android:id="@+id/tool_bar"
     app:title="标题"
     app:titleTextColor="@color/color_white"
+    app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
     >
 
 </android.support.v7.widget.Toolbar>

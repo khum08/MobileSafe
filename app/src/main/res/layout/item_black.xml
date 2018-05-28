@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="176121594080"
+        android:layout_marginLeft="@dimen/content_padding_left"
+        android:paddingTop="@dimen/content_padding_top"
+        android:textColor="@color/color_red1"
+        />
+    <TextView
+        android:id="@+id/tv_intercept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/content_padding_left"
+        tools:text="拦截短信"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_05"
+        android:background="@color/color_555"
+        android:layout_marginTop="@dimen/dimen_8"
+        />
+
+</LinearLayout>

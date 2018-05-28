@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.kotlin.khum.mobilesafe.R;
 import com.kotlin.khum.mobilesafe.global.BaseActivity;
+import com.kotlin.khum.mobilesafe.ui.guard.GuardActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
 
 public class MainActivity extends BaseActivity {
@@ -39,6 +40,9 @@ public class MainActivity extends BaseActivity {
         int position = recycler_view.getChildAdapterPosition(view);
         switch (position){
             case 0:
+                break;
+            case 1:
+                GuardActivity.start(this);
                 break;
             case 8:
                 SettingActivity.start(this);

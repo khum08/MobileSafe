@@ -19,12 +19,17 @@
     <dimen name="content_padding_top">@dimen/dimen_8</dimen>
     <dimen name="content_padding_bottom">@dimen/dimen_8</dimen>
 
+    <dimen name="line">@dimen/dimen_1</dimen>
+
     <dimen name="text_vertical_space">10dp</dimen>
     <dimen name="text_horizontal_space">10dp</dimen>
     <!--====================================================
     为统一风格 不期望直接访问下面的值
     使用时先在上面定义   后引用下面的值
     ===================================================-->
+
+    <dimen name="dimen_05">0.5dp</dimen>
+    <dimen name="dimen_1">1dp</dimen>
     <dimen name="dimen_4">4dp</dimen>
     <dimen name="dimen_5">5dp</dimen>
     <dimen name="dimen_6">6dp</dimen>
