@@ -24,7 +24,7 @@
         android:background="@color/color_line"/>
 
     <EditText
-        android:id="@+id/tv_input_number"
+        android:id="@+id/tv_input_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
@@ -33,9 +33,10 @@
         android:background="@drawable/shape_input_number"
         android:fontFamily="sans-serif"
         android:gravity="center"
+        android:maxLength="11"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:textColor="@color/color_444"
         android:textColorHint="#a0a0a0"
         android:textSize="@dimen/text_normal"

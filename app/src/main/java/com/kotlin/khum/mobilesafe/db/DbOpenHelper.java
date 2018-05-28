@@ -11,20 +11,19 @@ import android.database.sqlite.SQLiteOpenHelper;
  *     desc   :
  * </pre>
  */
-public class DbOpenHelper extends SQLiteOpenHelper {
-
+public abstract class DbOpenHelper extends SQLiteOpenHelper {
 
     public DbOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(setDd());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
+    //设置创建表的sql语句
+    protected abstract String setDd();
 }

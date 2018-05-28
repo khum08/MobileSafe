@@ -37,7 +37,6 @@ class GuardActivity:BaseActivity() {
     private fun showAddDialog() {
         val addBlackDialog = AddBlackDialog(this,R.style.Dialog_black)
         addBlackDialog.show()
-
     }
 
 
