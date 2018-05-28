@@ -16,6 +16,7 @@
   ===================================================-->
     <color name="color_text_white">@color/color_white</color>
     <color name="color_text_red">@color/color_red1</color>
+    <color name="color_text_black">@color/color_111</color>
 
 
     <!--====================================================

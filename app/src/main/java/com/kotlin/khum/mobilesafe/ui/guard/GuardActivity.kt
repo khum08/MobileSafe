@@ -3,6 +3,7 @@ package com.kotlin.khum.mobilesafe.ui.guard
 import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.kotlin.khum.mobilesafe.R
 import com.kotlin.khum.mobilesafe.global.BaseActivity
 import kotlinx.android.synthetic.main.activity_guard.*
@@ -29,8 +30,15 @@ class GuardActivity:BaseActivity() {
         recycler_view.layoutManager = layoutManager
         val guardAdapter = GuardAdapter(this)
         recycler_view.adapter = guardAdapter
+
+        fab.setOnClickListener(View.OnClickListener { showAddDialog() })
     }
 
+    private fun showAddDialog() {
+        val addBlackDialog = AddBlackDialog(this,R.style.Dialog_black)
+        addBlackDialog.show()
+
+    }
 
 
 }
