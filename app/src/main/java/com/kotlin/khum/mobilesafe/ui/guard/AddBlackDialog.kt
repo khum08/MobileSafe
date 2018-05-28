@@ -6,13 +6,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.kotlin.khum.mobilesafe.R
+import com.kotlin.khum.mobilesafe.db.dao.BlackNumberDao
+import com.kotlin.khum.mobilesafe.db.domain.BlackNumber
 import kotlinx.android.synthetic.main.dialog_black.*
+import org.greenrobot.eventbus.EventBus
 
 /**
  * <pre>
  *     author : khum
  *     time   : 2018/5/28
- *     desc   :
+ *     desc   : 添加黑名单的dialog
  * </pre>
  */
 class AddBlackDialog(context: Context?, themeResId: Int) : Dialog(context, themeResId) {
@@ -30,8 +33,25 @@ class AddBlackDialog(context: Context?, themeResId: Int) : Dialog(context, theme
                 Toast.makeText(context,"请选择拦截方式",Toast.LENGTH_SHORT).show()
                 return@OnClickListener
             }
+            val dao = BlackNumberDao.getInstance(context)
+            val interceptMode = when(radioButtonId){
+                R.id.intercept_phone -> 0
+                R.id.intercept_msg -> 1
+                R.id.intercept_all -> 2
+                else -> 3
+            }
+            val blackNumber = BlackNumber(phone,interceptMode)
+            val success = dao.insert(phone, interceptMode)
+            if(success){
+                this.dismiss()
+            }else{
+                Toast.makeText(context,"添加黑名单失败",Toast.LENGTH_LONG).show()
+            }
+            //发送一个通知给页面刷新数据
+            EventBus.getDefault().post(blackNumber)
         })
         tv_cancel.setOnClickListener(View.OnClickListener { this.dismiss() })
-
     }
 }
+
+

@@ -41,7 +41,7 @@ public class BlackNumberDao {
      * @param intercept
      * @return
      */
-    private boolean insert(String phone,int intercept){
+    public boolean insert(String phone,int intercept){
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("phone", phone);
@@ -56,7 +56,7 @@ public class BlackNumberDao {
      * @param phone
      * @return
      */
-    private boolean delete(String phone){
+    public boolean delete(String phone){
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("phone", phone);
@@ -71,7 +71,7 @@ public class BlackNumberDao {
      * @param selectCount
      * @return
      */
-    private List<BlackNumber> query(int startIndex,int selectCount){
+    public List<BlackNumber> query(int startIndex,int selectCount){
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select phone,intercept from black_number order by _id desc limit ?,?",
                 new String[]{String.valueOf(startIndex), String.valueOf(selectCount)});
