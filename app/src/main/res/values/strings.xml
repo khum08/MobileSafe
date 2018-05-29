@@ -34,4 +34,14 @@
     <string name="intercept_all">拦截所有</string>
 
 
+    <!--====================================================
+设置页面
+===================================================-->
+
+    <string name="setting_black_title">黑名单拦截</string>
+    <string name="setting_black_on">拦截开启</string>
+    <string name="setting_black_off">拦截关闭</string>
+
+
+
 </resources>

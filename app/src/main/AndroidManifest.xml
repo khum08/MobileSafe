@@ -18,6 +18,8 @@
         <activity android:name=".ui.main.SplashActivity"/>
         <activity android:name=".ui.setting.SettingActivity"/>
         <activity android:name=".ui.guard.GuardActivity"/>
+
+        <service android:name=".service.BlackNumberService"/>
     </application>
 
 </manifest>

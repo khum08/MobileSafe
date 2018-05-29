@@ -24,6 +24,8 @@ public class  CheckableItem extends RelativeLayout {
 
     private TextView mTvBottom;
     private CheckBox mCheckBox;
+    private String mOnText;
+    private String mOffText;
 
     public CheckableItem(Context context) {
         this(context,null);
@@ -47,7 +49,8 @@ public class  CheckableItem extends RelativeLayout {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CheckableItem);
         String topText = typedArray.getText(R.styleable.CheckableItem_topText).toString();
-        String bottomText = typedArray.getText(R.styleable.CheckableItem_bottomText).toString();
+        mOnText = typedArray.getText(R.styleable.CheckableItem_onText).toString();
+        mOffText = typedArray.getText(R.styleable.CheckableItem_offText).toString();
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.item_checkable, this);
         TextView tvTop = findViewById(R.id.tv_top);
@@ -55,7 +58,7 @@ public class  CheckableItem extends RelativeLayout {
         mCheckBox = findViewById(R.id.checkbox);
 
         tvTop.setText(topText);
-        mTvBottom.setText(bottomText);
+        mTvBottom.setText(mOnText);
         typedArray.recycle();//清理资源，回收资源，为了防止下一次使用的时候造成影响
     }
 
@@ -65,6 +68,10 @@ public class  CheckableItem extends RelativeLayout {
 
     public void setItemChecked(boolean checked){
         mCheckBox.setChecked(checked);
+        if(checked)
+            setBottomText(mOnText);
+        else
+            setBottomText(mOffText);
     }
 
     public boolean isChecked(){

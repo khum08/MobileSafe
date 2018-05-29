@@ -12,8 +12,22 @@
         android:id="@+id/auto_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        ms:topText="自动更新设置"
-        ms:bottomText="自动更新已关闭"
+        ms:topText="测试"
+        ms:onText="自动更新已开启"
+        ms:offText="自动更新已关闭"
+        />
+    <View
+        android:layout_width="match_parent"
+          android:layout_height="@dimen/line"
+        android:background="@color/color_line"
+          />
+    <com.kotlin.khum.mobilesafe.ui.widget.CheckableItem
+        android:id="@+id/intercept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ms:offText="@string/setting_black_off"
+        ms:onText="@string/setting_black_on"
+        ms:topText="@string/setting_black_title"
         />
 
 </LinearLayout>

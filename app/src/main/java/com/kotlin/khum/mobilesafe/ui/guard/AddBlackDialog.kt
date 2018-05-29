@@ -15,7 +15,7 @@ import org.greenrobot.eventbus.EventBus
  * <pre>
  *     author : khum
  *     time   : 2018/5/28
- *     desc   : 添加黑名单的dialog
+ *     desc   : 添加黑名单的dialog (自定义这个dialog,方便设置style)
  * </pre>
  */
 class AddBlackDialog(context: Context?, themeResId: Int) : Dialog(context, themeResId) {
@@ -50,7 +50,7 @@ class AddBlackDialog(context: Context?, themeResId: Int) : Dialog(context, theme
             //发送一个通知给页面刷新数据
             EventBus.getDefault().post(blackNumber)
         })
-        tv_cancel.setOnClickListener(View.OnClickListener { this.dismiss() })
+        tv_cancel.setOnClickListener{ this.dismiss() }
     }
 }
 

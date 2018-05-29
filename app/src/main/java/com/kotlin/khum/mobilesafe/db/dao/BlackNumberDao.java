@@ -15,7 +15,7 @@ import java.util.List;
  * <pre>
  *     author : khum
  *     time   : 2018/5/28
- *     desc   :
+ *     desc   : 黑名单的增删改查
  * </pre>
  */
 public class BlackNumberDao {
@@ -86,5 +86,43 @@ public class BlackNumberDao {
         return list;
     }
 
+    /**
+     *  通过手机号查询拦截方式
+     * @param phone
+     * @return
+     */
+    public int queryModeViaPhone(String phone){
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select intercept from black_number where phone = ?", new String[]{phone});
+        int mode = -1;
+        while (cursor.moveToNext()){
+            mode = cursor.getInt(0);
+        }
+        cursor.close();
+        db.close();
+        return mode;
+    }
+
+    /**
+     * 查询黑名单的表一共含有多少条数据
+     * @return
+     */
+    public int queryTableCount(){
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select count(*) from black_number", new String[]{});
+        int count = 0 ;
+        while (cursor.moveToNext()){
+            count = cursor.getInt(0);
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+
 
 }
+
+
+
+
+

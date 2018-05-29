@@ -16,7 +16,8 @@ import com.kotlin.khum.mobilesafe.db.domain.BlackNumber
  *     desc   :
  * </pre>
  */
-class GuardAdapter(val context: Context, var blackList: List<BlackNumber>) : RecyclerView.Adapter<GuardAdapter.MyViewHolder>() {
+@Deprecated("is deprecated")
+class GuardAdapter  constructor(val context: Context, var blackList: List<BlackNumber>) : RecyclerView.Adapter<GuardAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_black, parent, false)
