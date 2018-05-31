@@ -22,27 +22,45 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/line"
         android:background="@color/color_line"/>
-
-    <EditText
-        android:id="@+id/tv_input_phone"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/shape_input_number"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:maxLength="11"
-        android:paddingTop="11dp"
-        android:paddingBottom="11dp"
-        android:inputType="number"
-        android:textColor="@color/color_444"
-        android:textColorHint="#a0a0a0"
-        android:textSize="@dimen/text_normal"
-        android:includeFontPadding="false"
-        android:hint="@string/input_phone"
-        />
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/tv_input_phone"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_input_number"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:maxLength="11"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:inputType="number"
+            android:textColor="@color/color_444"
+            android:textColorHint="#a0a0a0"
+            android:textSize="@dimen/text_normal"
+            android:includeFontPadding="false"
+            android:hint="@string/input_phone"
+            />
+        <TextView
+            android:id="@+id/tv_contact"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/black_add_contact"
+            android:paddingTop="@dimen/dimen_11"
+            android:paddingBottom="@dimen/dimen_11"
+            android:layout_marginRight="@dimen/dimen_14"
+            android:layout_marginTop="@dimen/font_14"
+            />
+
+    </LinearLayout>
 
 
     <RadioGroup

@@ -32,7 +32,6 @@ public class MainActivity extends BaseActivity {
         recycler_view.setLayoutManager(layoutManager);
         MainAdapter adapter = new MainAdapter(this);
         recycler_view.setAdapter(adapter);
-
     }
 
     //此方法对应itemview根布局中onclink属性

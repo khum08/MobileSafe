@@ -32,6 +32,9 @@
     <string name="intercept_phone">拦截电话</string>
     <string name="intercept_message">拦截短信</string>
     <string name="intercept_all">拦截所有</string>
+    <string name="black_add_contact">联系人</string>
+    <string name="black_get_contact">直接获取</string>
+    <string name="black_jump_contact">跳转获取</string>
 
 
     <!--====================================================

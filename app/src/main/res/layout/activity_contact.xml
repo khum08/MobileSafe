@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:id="@+id/tool_bar"
+        app:title="黑名单"
+        app:titleTextColor="@color/color_white"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        >
+
+    </android.support.v7.widget.Toolbar>
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_12"
+        android:paddingBottom="@dimen/dimen_12"
+        android:orientation="horizontal"
+        >
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/get_contact"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:background="@drawable/selector_radio"
+            android:gravity="center"
+            android:padding="@dimen/dimen_6"
+            android:layout_marginLeft="@dimen/dimen_6"
+            android:layout_marginRight="@dimen/dimen_6"
+            android:text="@string/black_get_contact"
+            android:textColor="@drawable/selector_radio_text"
+            />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/jump_contact"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/dimen_6"
+            android:layout_marginRight="@dimen/dimen_6"
+            android:button="@null"
+            android:background="@drawable/selector_radio"
+            android:padding="@dimen/dimen_6"
+            android:text="@string/black_jump_contact"
+            android:textColor="@drawable/selector_radio_text"
+            />
+
+    </RadioGroup>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/color_line"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/contact_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+
+
+</LinearLayout>
