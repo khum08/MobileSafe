@@ -8,7 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
  * <pre>
  *     author : khum
  *     time   : 2018/5/28
- *     desc   :
+ *     desc   : SQLiteOpenHelper这个类存在的意义是让框架掌握SQLite的操作,实现框架的IoC（控制反转）思想，
+ *              利用模板方法的设计模式，让框架的基类调用的我们写的子类，让程序的运行流程掌握在框架手上。
+ *              这是常用的架构设计思想
  * </pre>
  */
 public abstract class DbOpenHelper extends SQLiteOpenHelper {
