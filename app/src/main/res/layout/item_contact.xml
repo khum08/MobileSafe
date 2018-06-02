@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="小明"
+        android:textSize="@dimen/text_normal"
+        android:textColor="@color/color_red1"
+        android:layout_marginLeft="@dimen/dimen_20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dimen_10"
+        />
+    <TextView
+        android:id="@+id/tv_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="17212157621"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        android:textSize="@dimen/text_small"
+        android:paddingBottom="@dimen/dimen_10"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/color_line"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mode"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -22,6 +22,9 @@ class AddBlackDialog(context: Context?, themeResId: Int) : Dialog(context, theme
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_black)
+        tv_contact.setOnClickListener{
+            ContactActivity.start(context)
+        }
         tv_confirm.setOnClickListener(View.OnClickListener {
             val phone = tv_input_phone.text.toString()
             if (phone.length!=11){
