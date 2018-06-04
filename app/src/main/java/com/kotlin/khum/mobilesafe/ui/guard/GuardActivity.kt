@@ -47,6 +47,7 @@ class GuardActivity : BaseActivity() ,BaseQuickAdapter.RequestLoadMoreListener{
         initAdapter(blackList)
         //添加黑名单
         fab.setOnClickListener{ showAddDialog() }
+
     }
 
     private fun initAdapter(list: MutableList<BlackNumber>) {

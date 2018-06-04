@@ -9,6 +9,14 @@ import android.os.Bundle;
 
 import com.kotlin.khum.mobilesafe.service.AppWidgetService;
 
+/**
+ * <pre>
+ *     author : khum
+ *     time   : 2018/5/29
+ *     desc   : 模板代码，需要在清单文件中配置。
+ *     			在这里开启桌面小部件的服务
+ * </pre>
+ */
 @SuppressLint("NewApi") 
 public class MyAppWidgetProvider extends AppWidgetProvider {
 

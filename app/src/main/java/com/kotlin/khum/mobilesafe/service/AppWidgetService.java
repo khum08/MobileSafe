@@ -20,7 +20,7 @@ import java.util.TimerTask;
  * <pre>
  *     author : khum
  *     time   : 2018/6/4
- *     desc   :
+ *     desc   : 小部件创建逻辑真正处理的地方
  * </pre>
  */
 public class AppWidgetService extends Service {
@@ -57,6 +57,9 @@ public class AppWidgetService extends Service {
         },0,1000);
     }
 
+    /**
+     * 更新桌面小部件
+     */
     private void updateWidget(){
         mTime = mSimpleDateFormat.format(System.currentTimeMillis());
         mRemoteViews.setTextViewText(R.id.tv_time,mTime);
