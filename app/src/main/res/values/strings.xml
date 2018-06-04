@@ -40,10 +40,37 @@
     <!--====================================================
 设置页面
 ===================================================-->
+    <string name="setting_update_title">自动更新</string>
+    <string name="setting_update_on">开启</string>
+    <string name="setting_update_off">关闭</string>
 
     <string name="setting_black_title">黑名单拦截</string>
     <string name="setting_black_on">拦截开启</string>
     <string name="setting_black_off">拦截关闭</string>
+
+    <string name="setting_address_title">归属地显示</string>
+    <string name="setting_address_on">归属地显示开启</string>
+    <string name="setting_address_off">归属地显示关闭</string>
+
+    <string name="setting_style_title">归属地提示框风格</string>
+    <string name="setting_style_1">半透明</string>
+    <string name="setting_style_2">活力橙</string>
+    <string name="setting_style_3">卫士蓝</string>
+    <string name="setting_style_4">金属灰</string>
+    <string name="setting_style_5">苹果绿</string>
+
+    <string name="setting_location_title">归属地提示框显示位置</string>
+    <string name="setting_location_bottom">设置归属地提示框的显示位置</string>
+    <string name="setting_location_button">双击居中</string>
+    <string name="setting_location_hint">按住提示框拖到任意位置\n按住手机返回键立即生效</string>
+
+    <string name="setting_lock_title">程序锁</string>
+    <string name="setting_lock_on">开启</string>
+    <string name="setting_lock_off">关闭</string>
+
+
+
+
 
 
 

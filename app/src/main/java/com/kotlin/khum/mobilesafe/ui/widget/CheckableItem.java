@@ -46,7 +46,7 @@ public class  CheckableItem extends RelativeLayout {
     }
 
     private void initView(Context context, AttributeSet attrs) {
-
+        //从res中获取属性值
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CheckableItem);
         String topText = typedArray.getText(R.styleable.CheckableItem_topText).toString();
         mOnText = typedArray.getText(R.styleable.CheckableItem_onText).toString();

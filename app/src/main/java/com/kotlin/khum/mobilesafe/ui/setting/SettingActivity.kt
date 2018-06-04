@@ -2,7 +2,7 @@ package com.kotlin.khum.mobilesafe.ui.setting
 
 import android.content.Context
 import android.content.Intent
-import android.view.View
+import android.widget.Toast
 import com.kotlin.khum.mobilesafe.R
 import com.kotlin.khum.mobilesafe.global.BaseActivity
 import com.kotlin.khum.mobilesafe.service.BlackNumberService
@@ -29,17 +29,50 @@ class SettingActivity:BaseActivity(){
 
     override fun initView() {
         tool_bar.title = "设置"
-        auto_update.setOnClickListener(View.OnClickListener {
-            if (auto_update.isChecked){
-                auto_update.setBottomText("自动更新关闭")
-                auto_update.setItemChecked(false)
-            }else{
-                auto_update.setBottomText("自动更新已开启")
-                auto_update.setItemChecked(true)
-            }
-        })
-
+        //自动更新
+        updateSeg()
+        //归属地显示
+        addressShowSeg()
+        //归属地提示风格
+        addressStyle()
+        //归属地提示位置
+        addressLocation()
         //拦截黑名单
+        interceptSeg()
+    }
+
+    //归属地提示位置
+    fun addressLocation(){
+        address_location.setOnClickListener{
+            val dialog = LocationDialog(this)
+            dialog.show()
+        }
+    }
+
+    //归属地提示风格
+    fun addressStyle(){
+        address_style.setOnClickListener{
+            Toast.makeText(this,"click here",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    //归属地显示
+    fun addressShowSeg(){
+        show_address.setOnClickListener{
+            show_address.setItemChecked(!show_address.isChecked)
+        }
+    }
+
+    //自动更新
+    fun updateSeg(){
+        auto_update.setOnClickListener{
+            auto_update.setItemChecked(!auto_update.isChecked)
+        }
+    }
+
+
+    //拦截黑名单
+    fun interceptSeg(){
         val isRunning = serviceIsRunning(
                 this,
                 "com.kotlin.khum.mobilesafe.service.BlackNumberService"
@@ -55,6 +88,6 @@ class SettingActivity:BaseActivity(){
                 startService(Intent(this, BlackNumberService::class.java))
             }
         }
-
     }
+
 }

@@ -7,4 +7,9 @@
         <attr name="onText" format="string|reference"/>
         <attr name="offText" format="string|reference"/>
     </declare-styleable>
+
+    <declare-styleable name="SelectItem">
+        <attr name="selectTopText" format="string|reference"/>
+        <attr name="selectBottomText" format="string|reference"/>
+    </declare-styleable>
 </resources>
