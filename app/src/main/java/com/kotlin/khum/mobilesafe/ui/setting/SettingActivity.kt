@@ -28,6 +28,8 @@ class SettingActivity:BaseActivity(){
     override fun attachLayoutRes(): Int = R.layout.activity_setting
 
     override fun initView() {
+        setSupportActionBar(tool_bar)
+
         tool_bar.title = "设置"
         //自动更新
         updateSeg()

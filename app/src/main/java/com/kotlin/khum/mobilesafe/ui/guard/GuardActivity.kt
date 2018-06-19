@@ -1,6 +1,8 @@
 package com.kotlin.khum.mobilesafe.ui.guard
 
+import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -11,6 +13,8 @@ import com.kotlin.khum.mobilesafe.global.BaseActivity
 import kotlinx.android.synthetic.main.activity_guard.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+
+
 
 /**
  * <pre>
@@ -39,6 +43,8 @@ class GuardActivity : BaseActivity() ,BaseQuickAdapter.RequestLoadMoreListener{
     override fun attachLayoutRes(): Int = R.layout.activity_guard
 
     override fun initView() {
+        setSupportActionBar(tool_bar)
+
         val layoutManager = LinearLayoutManager(this)
         recycler_view.layoutManager = layoutManager
         tableCount = BlackNumberDao.getInstance(this).queryTableCount()
@@ -79,6 +85,16 @@ class GuardActivity : BaseActivity() ,BaseQuickAdapter.RequestLoadMoreListener{
     //显示添加对话框
     private fun showAddDialog() {
         val addBlackDialog = AddBlackDialog(this, R.style.Dialog_black)
+        addBlackDialog.setOnShowListener(DialogInterface.OnShowListener {
+            val animator = ObjectAnimator.ofFloat(fab, "rotation", 0f, 135f)
+            animator.duration = 500
+            animator.start()
+        })
+        addBlackDialog.setOnDismissListener(DialogInterface.OnDismissListener {
+            val animator = ObjectAnimator.ofFloat(fab, "rotation", 135f, 0f)
+            animator.duration = 500
+            animator.start()
+        })
         addBlackDialog.show()
     }
 

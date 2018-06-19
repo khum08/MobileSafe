@@ -20,6 +20,9 @@
         <activity android:name=".ui.setting.SettingActivity"/>
         <activity android:name=".ui.guard.GuardActivity"/>
         <activity android:name=".ui.guard.ContactActivity"/>
+        <activity android:name=".ui.appmanager.AppManagerActivity"/>
+        <activity android:name=".ui.processmanager.ProcessManagerActivity"/>
+        <activity android:name=".ui.traffic.TrafficActivity"/>
 
         <service android:name=".service.BlackNumberService"/>
         <service android:name=".service.AppWidgetService"/>

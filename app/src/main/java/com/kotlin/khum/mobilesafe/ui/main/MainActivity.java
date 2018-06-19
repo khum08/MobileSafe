@@ -8,8 +8,11 @@ import android.widget.Toast;
 
 import com.kotlin.khum.mobilesafe.R;
 import com.kotlin.khum.mobilesafe.global.BaseActivity;
+import com.kotlin.khum.mobilesafe.ui.appmanager.AppManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.guard.GuardActivity;
+import com.kotlin.khum.mobilesafe.ui.processmanager.ProcessManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
+import com.kotlin.khum.mobilesafe.ui.traffic.TrafficActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -42,6 +45,15 @@ public class MainActivity extends BaseActivity {
                 break;
             case 1:
                 GuardActivity.start(this);
+                break;
+            case 2:
+                AppManagerActivity.start(this);
+                break;
+            case 3:
+                ProcessManagerActivity.start(this);
+                break;
+            case 4:
+                TrafficActivity.start(this);
                 break;
             case 8:
                 SettingActivity.start(this);
