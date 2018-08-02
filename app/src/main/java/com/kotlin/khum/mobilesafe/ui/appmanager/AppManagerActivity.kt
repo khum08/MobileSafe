@@ -2,15 +2,17 @@ package com.kotlin.khum.mobilesafe.ui.appmanager
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Bundle
 import com.kotlin.khum.mobilesafe.R
 import com.kotlin.khum.mobilesafe.global.BaseActivity
-import kotlinx.android.synthetic.main.common_title.*
+import com.kotlin.khum.mobilesafe.util.StatusBarUtil
 
 /**
  * <pre>
  *     author : khum
  *     time   : 2018/6/19
- *     desc   :
+ *     desc   : 软件管理
  * </pre>
  */
 class AppManagerActivity:BaseActivity() {
@@ -22,9 +24,12 @@ class AppManagerActivity:BaseActivity() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        StatusBarUtil.setColor(this, Color.RED)
+    }
+
     override fun initView() {
-        setSupportActionBar(tool_bar)
-        tool_bar.title = "软件管理"
     }
 
     override fun attachLayoutRes(): Int = R.layout.activity_appmanager

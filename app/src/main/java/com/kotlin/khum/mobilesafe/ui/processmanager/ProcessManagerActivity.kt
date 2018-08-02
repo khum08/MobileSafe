@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.common_title.*
  * <pre>
  *     author : khum
  *     time   : 2018/6/19
- *     desc   :
+ *     desc   : 进程管理
  * </pre>
  */
 class ProcessManagerActivity:BaseActivity() {
