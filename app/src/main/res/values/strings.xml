@@ -67,11 +67,10 @@
     <string name="setting_lock_title">程序锁</string>
     <string name="setting_lock_on">开启</string>
     <string name="setting_lock_off">关闭</string>
-
-
-
-
-
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 
 </resources>

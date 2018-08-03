@@ -17,6 +17,7 @@
         android:textSize="@dimen/text_normal"
         />
     <TextView
+        android:id="@+id/tv_search"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         android:layout_marginLeft="@dimen/dimen_18"
@@ -37,9 +38,11 @@
         android:orientation="horizontal"
         >
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_left"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="25"
+            android:overScrollMode="never"
             >
             
         </android.support.v7.widget.RecyclerView>

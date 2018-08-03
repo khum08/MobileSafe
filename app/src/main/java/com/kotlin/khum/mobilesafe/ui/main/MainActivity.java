@@ -1,5 +1,6 @@
 package com.kotlin.khum.mobilesafe.ui.main;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,6 +11,7 @@ import com.kotlin.khum.mobilesafe.R;
 import com.kotlin.khum.mobilesafe.global.BaseActivity;
 import com.kotlin.khum.mobilesafe.ui.appmanager.AppManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.guard.GuardActivity;
+import com.kotlin.khum.mobilesafe.ui.home.Main2Activity;
 import com.kotlin.khum.mobilesafe.ui.processmanager.ProcessManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
 import com.kotlin.khum.mobilesafe.ui.traffic.TrafficActivity;
@@ -54,6 +56,11 @@ public class MainActivity extends BaseActivity {
                 break;
             case 4:
                 TrafficActivity.start(this);
+                break;
+            case 6:
+                break;
+            case 7:
+                startActivity(new Intent(this, Main2Activity.class));
                 break;
             case 8:
                 SettingActivity.start(this);
