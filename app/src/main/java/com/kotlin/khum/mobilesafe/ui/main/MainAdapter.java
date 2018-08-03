@@ -21,14 +21,16 @@ import com.kotlin.khum.mobilesafe.R;
 //原生的adapter书写
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder>{
 
-    String[] mModuleTitles = {"手机防盗","通讯卫士","搜索","进程管理","流量统计","手机杀毒",
-            "主页","主页2","设置中心"};
+    String[] mModuleTitles = {"1","防火墙","搜索","进程管理","流量统计","手机杀毒",
+            "主页","主页2","设置","10","11","12","13","14"};
 
-    int[] mDrawables = { R.mipmap.home_safe, R.mipmap.home_callmsgsafe,
-            R.mipmap.home_apps, R.mipmap.home_taskmanager,
-            R.mipmap.home_netmanager, R.mipmap.home_trojan,
-            R.mipmap.home_sysoptimize, R.mipmap.home_tools,
-            R.mipmap.home_settings };
+    int[] mDrawables = { R.mipmap.home_1, R.mipmap.home_2,
+            R.mipmap.home_3, R.mipmap.home_4,
+            R.mipmap.home_5, R.mipmap.home_6,
+            R.mipmap.home_7, R.mipmap.home_8,
+            R.mipmap.home_9, R.mipmap.home_10,
+            R.mipmap.home_11,R.mipmap.home_12,
+            R.mipmap.home_13,R.mipmap.home_14};
     private Context mContext;
     public MainAdapter(Context context){
         this.mContext = context;
