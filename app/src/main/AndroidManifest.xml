@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.kotlin.khum.mobilesafe">
-    <!--读取手机联系人-->
+
+    <!-- 读取手机联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <application
         android:allowBackup="true"
         android:name=".global.App"
@@ -14,6 +16,7 @@
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -21,8 +24,27 @@
         <activity android:name=".ui.setting.SettingActivity"/>
         <activity android:name=".ui.guard.GuardActivity"/>
         <activity android:name=".ui.guard.ContactActivity"/>
+        <activity android:name=".ui.appmanager.AppManagerActivity"/>
+        <activity android:name=".ui.processmanager.ProcessManagerActivity"/>
+        <activity android:name=".ui.traffic.TrafficActivity"/>
 
         <service android:name=".service.BlackNumberService"/>
+        <service android:name=".service.AppWidgetService"/>
+
+        <receiver android:name=".receiver.MyAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_info"/>
+        </receiver>
+
+        <activity
+            android:name=".ui.home.Main2Activity"
+            android:label="@string/title_activity_main2">
+        </activity>
     </application>
 
 </manifest>

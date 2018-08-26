@@ -22,7 +22,6 @@ class Guard2Adapter(layoutResId: Int, data: MutableList<BlackNumber>?) : BaseQui
                     2 -> "拦截所有"
                     else -> "其他"
                 })
-
     }
 
 }

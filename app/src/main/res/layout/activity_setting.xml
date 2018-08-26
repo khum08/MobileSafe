@@ -8,19 +8,40 @@
     >
 
     <include layout="@layout/common_title"/>
+
     <com.kotlin.khum.mobilesafe.ui.widget.CheckableItem
         android:id="@+id/auto_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        ms:topText="测试"
-        ms:onText="自动更新已开启"
-        ms:offText="自动更新已关闭"
+        ms:topText="@string/setting_update_title"
+        ms:onText="@string/setting_update_on"
+        ms:offText="@string/setting_update_off"
         />
-    <View
+
+    <com.kotlin.khum.mobilesafe.ui.widget.CheckableItem
+        android:id="@+id/show_address"
         android:layout_width="match_parent"
-          android:layout_height="@dimen/line"
-        android:background="@color/color_line"
-          />
+        android:layout_height="wrap_content"
+        ms:topText="@string/setting_address_title"
+        ms:onText="@string/setting_address_on"
+        ms:offText="@string/setting_address_off"
+        />
+    <com.kotlin.khum.mobilesafe.ui.widget.SelectItem
+        android:id="@+id/address_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ms:selectTopText="@string/setting_style_title"
+        ms:selectBottomText="无"
+        />
+    <com.kotlin.khum.mobilesafe.ui.widget.SelectItem
+        android:id="@+id/address_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ms:selectTopText="@string/setting_location_title"
+        ms:selectBottomText="@string/setting_location_bottom"
+        />
+
+
     <com.kotlin.khum.mobilesafe.ui.widget.CheckableItem
         android:id="@+id/intercept"
         android:layout_width="match_parent"

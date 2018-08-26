@@ -10,6 +10,7 @@
     <color name="color_line">@color/color_e5</color>
     <color name="btn_normal_color">#32ce69</color>
     <color name="btn_press_color">#13ab48</color>
+    <color name="bg_transparent">#22ffffff</color>
 
     <!--====================================================
                       字体颜色
