@@ -16,6 +16,8 @@ import com.kotlin.khum.mobilesafe.ui.processmanager.ProcessManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
 import com.kotlin.khum.mobilesafe.ui.traffic.TrafficActivity;
 
+import me.ele.uetool.UETool;
+
 public class MainActivity extends BaseActivity {
 
     private RecyclerView recycler_view;
@@ -26,6 +28,7 @@ public class MainActivity extends BaseActivity {
     }
     @Override
     protected void initView() {
+        UETool.showUETMenu();
         findView();
         initRecyclerView();
     }
