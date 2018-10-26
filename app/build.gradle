@@ -41,5 +41,7 @@ dependencies {
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34"
     debugCompile 'me.ele:uetool:1.0.15'
     releaseCompile 'me.ele:uetool-no-op:1.0.15'
+    //热修复
+    compile 'com.aliyun.ams:alicloud-android-hotfix:3.2.3'
 
 }
