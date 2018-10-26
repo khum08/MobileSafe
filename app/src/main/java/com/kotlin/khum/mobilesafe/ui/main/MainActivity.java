@@ -19,6 +19,8 @@ import com.kotlin.khum.mobilesafe.ui.processmanager.ProcessManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
 import com.kotlin.khum.mobilesafe.ui.traffic.TrafficActivity;
 
+import me.ele.uetool.UETool;
+
 public class MainActivity extends BaseActivity {
 
     private RecyclerView recycler_view;
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity {
     }
     @Override
     protected void initView() {
+        UETool.showUETMenu();
         findView();
         initRecyclerView();
     }
@@ -40,6 +43,7 @@ public class MainActivity extends BaseActivity {
         recycler_view.setLayoutManager(layoutManager);
         MainAdapter adapter = new MainAdapter(this);
         recycler_view.setAdapter(adapter);
+        
     }
 
     //此方法对应itemview根布局中onclink属性
