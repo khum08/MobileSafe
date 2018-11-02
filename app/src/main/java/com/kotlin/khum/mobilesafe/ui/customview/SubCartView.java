@@ -40,7 +40,6 @@ public class SubCartView extends View {
     private RectF mLeftRectF;
     private int mQuantity;
     private Path mLeftPath;
-    private Path mDelPath;
     private int mGap;
     protected float progress;//收缩进度 0 表示操作， 1 为加入购物车
 
@@ -92,6 +91,7 @@ public class SubCartView extends View {
     protected void onDraw(Canvas canvas) {
         this.mCanvas = canvas;
         if (isHint){
+            mQuantity =1;
             drawCart();
         }else{
             drawLeftCircle();
@@ -163,8 +163,10 @@ public class SubCartView extends View {
         mLeftPath.reset();
         mLeftPath.addCircle(mHeight/2+mGap*progress, mHeight/2, mHeight/2-circleStroke, Path.Direction.CW);
         mCanvas.drawPath(mLeftPath, mPaint);
-        mCanvas.drawLine(mHeight*0.2f+mGap*progress, mHeight/2-0.3f*mHeight*progress,
-                mHeight*0.8f+mGap*progress, mHeight/2+0.3f*mHeight*progress, mPaint);
+        float sin = (float) Math.sin(Math.PI * progress/2);
+        float cos = (float) Math.cos(Math.PI * progress/2);
+        mCanvas.drawLine(mGap*progress+mHeight/2+3*mHeight*cos/10, mHeight/2+3*mHeight*sin/10,
+                mGap*progress+mHeight/2-3*mHeight*cos/10, mHeight/2-3*mHeight*sin/10, mPaint);
     }
 
     @Override
@@ -207,7 +209,7 @@ public class SubCartView extends View {
             }
         });
 
-        ValueAnimator downAnim = ValueAnimator.ofFloat(0,1).setDuration(400);
+        ValueAnimator downAnim = ValueAnimator.ofFloat(0,1).setDuration(300);
         downAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -234,6 +236,7 @@ public class SubCartView extends View {
             mQuantity--;
             invalidate();
         }else{
+            mQuantity = 0;
             shrink();
         }
     }
@@ -261,13 +264,10 @@ public class SubCartView extends View {
                 invalidate();
             }
         });
-        leftCircleAnim.setDuration(400).start();
+        leftCircleAnim.setDuration(300).start();
     }
 
     public int getQuantity(){
-        if (isHint){
-            return 0;
-        }
         return mQuantity;
     }
 
