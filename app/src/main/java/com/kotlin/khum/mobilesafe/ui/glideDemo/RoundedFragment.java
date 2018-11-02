@@ -1,4 +1,4 @@
-package com.kotlin.khum.mobilesafe.ui.GlideDemo;
+package com.kotlin.khum.mobilesafe.ui.glideDemo;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.kotlin.khum.mobilesafe.R;
 
-import jp.wasabeef.glide.transformations.CropCircleTransformation;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * <pre>
@@ -21,9 +21,9 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  *     desc   :
  * </pre>
  */
-public class CircleFragment extends Fragment {
+public class RoundedFragment extends Fragment {
 
-    private static Fragment instance = new CircleFragment();
+    private static Fragment instance = new RoundedFragment();
     private View rootView;
     private ImageView mImageView;
 
@@ -36,10 +36,10 @@ public class CircleFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.view_iv, container,false);
         mImageView = rootView.findViewById(R.id.image_view);
-        Glide.with(getContext()).load(UrlStatic.url1)
-                .bitmapTransform(new CropCircleTransformation(getContext()))
+        Glide.with(getContext())
+                .load(UrlStatic.url1)
+                .bitmapTransform(new RoundedCornersTransformation(getContext(),20, 0))
                 .into(mImageView);
         return rootView;
     }
-
 }

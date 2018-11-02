@@ -11,9 +11,6 @@ import android.view.WindowManager;
 
 import com.kotlin.khum.mobilesafe.R;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 import static android.content.Context.WINDOW_SERVICE;
 
 /**
@@ -25,7 +22,6 @@ import static android.content.Context.WINDOW_SERVICE;
  */
 public class SignInDialog extends DialogFragment {
 
-    private Unbinder mBind;
 
     public static SignInDialog newInstance(){
         return new SignInDialog();
@@ -42,7 +38,6 @@ public class SignInDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_signin, container, false);
-        mBind = ButterKnife.bind(this, view);
         initView();
         return view;
     }

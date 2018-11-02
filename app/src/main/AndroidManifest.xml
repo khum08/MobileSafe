@@ -54,8 +54,10 @@
         </activity>
         <activity android:name=".ui.aidl.AidlActivity"/>
         <activity android:name=".ui.imageloader.ImageLoaderActivity"/>
-        <activity android:name=".ui.customview.View1Activity"/>
-        <activity android:name=".ui.GlideDemo.GlideActivity"/>
+        <activity android:name=".ui.customview.CartActivity"/>
+        <activity android:name=".ui.glideDemo.GlideActivity"/>
+        <activity android:name=".ui.arouter.ArouterActivity"/>
+        <activity android:name=".ui.customview.ViewActivity"/>
     </application>
 
 </manifest>

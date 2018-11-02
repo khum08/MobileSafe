@@ -1,4 +1,4 @@
-package com.kotlin.khum.mobilesafe.ui.GlideDemo;
+package com.kotlin.khum.mobilesafe.ui.glideDemo;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package com.kotlin.khum.mobilesafe.ui.GlideDemo;
+package com.kotlin.khum.mobilesafe.ui.glideDemo;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.kotlin.khum.mobilesafe.R;
 
-import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * <pre>
@@ -21,11 +21,11 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
  *     desc   :
  * </pre>
  */
-public class BlurFragment extends Fragment{
+public class CircleFragment extends Fragment {
 
-    private static Fragment instance = new BlurFragment();
-    private ImageView mImageView;
+    private static Fragment instance = new CircleFragment();
     private View rootView;
+    private ImageView mImageView;
 
     public static Fragment getInstance(){
         return instance;
@@ -37,8 +37,9 @@ public class BlurFragment extends Fragment{
         rootView = inflater.inflate(R.layout.view_iv, container,false);
         mImageView = rootView.findViewById(R.id.image_view);
         Glide.with(getContext()).load(UrlStatic.url1)
-                .bitmapTransform(new BlurTransformation(getContext()))
+                .bitmapTransform(new CropCircleTransformation(getContext()))
                 .into(mImageView);
         return rootView;
     }
+
 }

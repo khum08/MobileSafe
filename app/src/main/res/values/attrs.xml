@@ -12,4 +12,19 @@
         <attr name="selectTopText" format="string|reference"/>
         <attr name="selectBottomText" format="string|reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CartView">
+        <attr name="cart_background" format="color|reference"/>
+        <attr name="text" format="string|reference"/>
+        <attr name="textColor" format="color|reference"/>
+        <attr name="textSize" format="dimension|reference"/>
+    </declare-styleable>
+    <declare-styleable name="SubCartView">
+        <attr name="svc_circleColor" format="color|reference"/>
+        <attr name="svc_rightColor" format="color|reference"/>
+        <attr name="svc_plus_color" format="color|reference"/>
+        <attr name="svc_text" format="integer|reference"/>
+        <attr name="svc_textColor" format="color|reference"/>
+        <attr name="svc_textSize" format="dimension|reference"/>
+    </declare-styleable>
 </resources>

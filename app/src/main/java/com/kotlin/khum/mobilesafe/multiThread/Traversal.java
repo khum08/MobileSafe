@@ -1,6 +1,7 @@
 package com.kotlin.khum.mobilesafe.multiThread;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -20,6 +21,16 @@ public class Traversal {
         list.add("D");
         list.add("E");
         list.add("F");
+        Iterator<String> iterator = list.iterator();
+        String next;
+        while (iterator.hasNext()){
+            next = iterator.next();
+            if (next.equals("C")){
+                iterator.remove();
+            }else{
+                System.out.println(next);
+            }
+        }
 
     }
 

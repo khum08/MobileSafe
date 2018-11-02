@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.taobao.sophix.SophixManager;
 
+
 /**
  * <pre>
  *     author : yuanzhenkun
@@ -40,5 +41,9 @@ public class App extends Application {
                 sb.append(temp);
             }
         }
+        initArouter();
+    }
+
+    private void initArouter() {
     }
 }
