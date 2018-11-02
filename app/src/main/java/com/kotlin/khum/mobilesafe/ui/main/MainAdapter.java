@@ -21,8 +21,8 @@ import com.kotlin.khum.mobilesafe.R;
 //原生的adapter书写
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder>{
 
-    String[] mModuleTitles = {"1","防火墙","搜索","进程管理","流量统计","手机杀毒",
-            "主页","主页2","设置","10","11","12","我是测试","Sophix"};
+    String[] mModuleTitles = {"1","防火墙","搜索","弹出框","流量统计","手机杀毒",
+            "主页","系统主页","设置","AIDL","ImageLoader","自定义View","Glide","Sophix"};
 
     int[] mDrawables = { R.mipmap.home_1, R.mipmap.home_2,
             R.mipmap.home_3, R.mipmap.home_4,

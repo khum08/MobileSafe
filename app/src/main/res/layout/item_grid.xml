@@ -19,6 +19,7 @@
         tools:text="手机防盗"
         android:textColor="@color/color_111"
         android:gravity="center"
+        android:drawableTint="@color/color_text_red"
         android:drawablePadding="@dimen/dimen_6"
         android:paddingBottom="@dimen/dimen_6"
         />

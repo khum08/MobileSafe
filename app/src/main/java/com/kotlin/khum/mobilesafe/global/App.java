@@ -2,11 +2,8 @@ package com.kotlin.khum.mobilesafe.global;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
-import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
-import com.taobao.sophix.listener.PatchLoadStatusListener;
 
 /**
  * <pre>
@@ -25,7 +22,6 @@ public class App extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        initHotfix();
     }
 
     @Override
@@ -45,46 +41,4 @@ public class App extends Application {
             }
         }
     }
-
-    private void initHotfix() {
-        String appVersion;
-        try {
-            appVersion = this.getPackageManager().getPackageInfo(this.getPackageName(), 0).versionName;
-        } catch (Exception e) {
-            appVersion = "1.0.0";
-        }
-        SophixManager.getInstance().setContext(this)
-                .setAppVersion(appVersion)
-                .setSecretMetaData(APP_KEY, APP_SECRET, RSASECRET)
-                .setAesKey(null)
-                //.setAesKey("0123456789123456")
-                .setEnableDebug(true)
-                .setPatchLoadStatusStub(new PatchLoadStatusListener() {
-                    @Override
-                    public void onLoad(final int mode, final int code, final String info, final int handlePatchVersion) {
-                        String msg = new StringBuilder().append("Mode:").append(mode)
-                                .append(" Code:").append(code)
-                                .append(" Info:").append(info)
-                                .append(" HandlePatchVersion:").append(handlePatchVersion).toString();
-                        // 补丁加载回调通知
-                        if (code == PatchStatus.CODE_LOAD_SUCCESS) {
-                            // 表明补丁加载成功
-                            Log.d(TAG, "1："+msg);
-                        } else if (code == PatchStatus.CODE_LOAD_RELAUNCH) {
-                            Log.d(TAG, "2："+msg);
-                            // 表明新补丁生效需要重启. 开发者可提示用户或者强制重启;
-                            // 建议: 用户可以监听进入后台事件, 然后调用killProcessSafely自杀，以此加快应用补丁，详见1.3.2.3
-                        } else {
-                            Log.d(TAG, "3:"+msg);
-                            // 其它错误信息, 查看PatchStatus类说明
-                        }
-//                        if (msgDisplayListener != null) {
-//                            msgDisplayListener.handle(msg);
-//                        } else {
-//                            cacheMsg.append("\n").append(msg);
-//                        }
-                    }
-                }).initialize();
-    }
-
 }

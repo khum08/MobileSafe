@@ -24,7 +24,9 @@ class ProcessManagerActivity:BaseActivity() {
 
     override fun initView() {
         setSupportActionBar(tool_bar)
-        tool_bar.title = "进程管理"
+        tool_bar.title = "dialog"
+        val dialog = SignInDialog.newInstance()
+        dialog.show(fragmentManager,"sign_in")
     }
 
     override fun attachLayoutRes(): Int = R.layout.activity_processmanager
