@@ -22,7 +22,7 @@ import com.kotlin.khum.mobilesafe.R;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder>{
 
     String[] mModuleTitles = {"1","防火墙","搜索","弹出框","流量统计","手机杀毒",
-            "主页","系统主页","设置","AIDL","ImageLoader","自定义View","Glide","14"};
+            "主页","系统主页","设置","AIDL","ImageLoader","自定义View","Glide","Arouter"};
 
     int[] mDrawables = { R.mipmap.home_1, R.mipmap.home_2,
             R.mipmap.home_3, R.mipmap.home_4,

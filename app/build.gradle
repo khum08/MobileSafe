@@ -12,6 +12,12 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [ AROUTER_MODULE_NAME : project.getName() ,AROUTER_GENERATE_DOC : "enable" ]
+//                includeCompileClasspath false
+//            }
+//        }
     }
     buildTypes {
         release {
@@ -23,6 +29,11 @@ android {
 ext {
     support_version = '27.1.1'
     kotlin_version = '1.2.0'
+}
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -41,9 +52,12 @@ dependencies {
     implementation "com.android.support:design:$support_version"
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34"
-    debugCompile 'me.ele:uetool:1.0.15'
-    releaseCompile 'me.ele:uetool-no-op:1.0.15'
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
+    debugImplementation 'me.ele:uetool:1.0.15'
+    releaseImplementation 'me.ele:uetool-no-op:1.0.15'
+//    implementation 'com.jakewharton:butterknife:8.8.1'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //arouter
+    implementation 'com.alibaba:arouter-api:1.4.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
+    kapt 'com.alibaba:arouter-compiler:1.2.1'
 }

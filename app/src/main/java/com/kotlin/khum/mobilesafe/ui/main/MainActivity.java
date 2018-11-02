@@ -9,9 +9,10 @@ import android.widget.Toast;
 
 import com.kotlin.khum.mobilesafe.R;
 import com.kotlin.khum.mobilesafe.global.BaseActivity;
-import com.kotlin.khum.mobilesafe.ui.GlideDemo.GlideActivity;
 import com.kotlin.khum.mobilesafe.ui.aidl.AidlActivity;
 import com.kotlin.khum.mobilesafe.ui.appmanager.AppManagerActivity;
+import com.kotlin.khum.mobilesafe.ui.customview.ViewActivity;
+import com.kotlin.khum.mobilesafe.ui.glideDemo.GlideActivity;
 import com.kotlin.khum.mobilesafe.ui.guard.GuardActivity;
 import com.kotlin.khum.mobilesafe.ui.home.Main2Activity;
 import com.kotlin.khum.mobilesafe.ui.imageloader.ImageLoaderActivity;
@@ -19,7 +20,6 @@ import com.kotlin.khum.mobilesafe.ui.processmanager.ProcessManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
 import com.kotlin.khum.mobilesafe.ui.traffic.TrafficActivity;
 
-import me.ele.uetool.UETool;
 
 public class MainActivity extends BaseActivity {
 
@@ -31,7 +31,6 @@ public class MainActivity extends BaseActivity {
     }
     @Override
     protected void initView() {
-        UETool.showUETMenu();
         findView();
         initRecyclerView();
     }
@@ -46,7 +45,7 @@ public class MainActivity extends BaseActivity {
         
     }
 
-    //此方法对应itemview根布局中onclink属性
+    //此方法对应itemView根布局中onclick属性
     public void onItemClick(View view){
         int position = recycler_view.getChildAdapterPosition(view);
         switch (position){
@@ -78,8 +77,13 @@ public class MainActivity extends BaseActivity {
             case 10:
                 startActivity(new Intent(this, ImageLoaderActivity.class));
                 break;
+            case 11:
+                ViewActivity.launch(this);
+                break;
             case 12:
                 startActivity(new Intent(this, GlideActivity.class));
+                break;
+            case 13:
                 break;
             default:
                 Toast.makeText(this,"click position="+recycler_view.getChildAdapterPosition(view),Toast.LENGTH_LONG).show();
