@@ -17,21 +17,34 @@ import com.kotlin.khum.mobilesafe.global.BaseActivity;
  */
 public class CartActivity extends BaseActivity {
 
+    private CartView mCartView;
+    private SubCartView mSubCartView;
+
     public static void launch(Context context){
         context.startActivity(new Intent(context, CartActivity.class));
     }
 
     @Override
     protected void initView() {
-        final SubCartView subCartView = findViewById(R.id.scv);
+        mSubCartView = findViewById(R.id.scv);
+        mCartView = findViewById(R.id.cv);
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CartActivity.this, "数量为："+subCartView.getQuantity(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CartActivity.this, "数量为："+ mSubCartView.getQuantity(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        mSubCartView.setQuantityChangedListener(new SubCartView.QuantityChangedListener() {
+            @Override
+            public void quantityChanged(SubCartView subCartView, int quantity, boolean isIncrease) {
+                int q = subCartView.getQuantity();
+                if (q>0 && isIncrease){
+                }
             }
         });
 
     }
+
 
     @Override
     protected int attachLayoutRes() {

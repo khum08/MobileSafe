@@ -25,6 +25,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 ext {
     support_version = '27.1.1'
@@ -62,4 +66,5 @@ dependencies {
     //arouter
     implementation 'com.alibaba:arouter-api:1.4.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
 }

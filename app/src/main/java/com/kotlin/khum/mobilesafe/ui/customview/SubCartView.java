@@ -46,6 +46,7 @@ public class SubCartView extends View {
     protected boolean isHint;
     private Path mCartPath;
     private RectF mOuterRect;
+    private QuantityChangedListener mQuantityChangedListener;
 
     public SubCartView(Context context) {
         this(context, null);
@@ -75,7 +76,7 @@ public class SubCartView extends View {
 
     //初始化画笔
     private void initPaint() {
-        mPaint = new Paint();
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStrokeWidth(circleStroke);
     }
 
@@ -98,6 +99,11 @@ public class SubCartView extends View {
             drawRightCircle();
             drawText();
         }
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
     }
 
     private void drawCart() {
@@ -124,6 +130,7 @@ public class SubCartView extends View {
     private void drawText() {
         mPaint.setColor(mTextColor);
         mPaint.setTextSize(mTextSize);
+        mPaint.setStrokeWidth(2f);
         mPaint.setAlpha((int) ((1-progress)*255));
         if(mRectF==null){
             mRectF = new RectF(0,0,mWidth, mHeight);
@@ -143,7 +150,7 @@ public class SubCartView extends View {
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         mCanvas.drawCircle(mWidth- mHeight/2, mHeight/2, mHeight/2-circleStroke, mPaint);
         mPaint.setColor(mPlusColor);
-        mPaint.setStrokeWidth(4f);
+        mPaint.setStrokeWidth(circleStroke);
         float sin = (float) Math.sin(Math.PI * progress/2);
         float cos = (float) Math.cos(Math.PI * progress/2);
         mCanvas.drawLine(mWidth-mHeight/2-3*mHeight*cos/10, mHeight/2-3*mHeight*sin/10,
@@ -159,6 +166,7 @@ public class SubCartView extends View {
         }
         mPaint.setColor(mCircleColor);
         mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(circleStroke);
         mPaint.setAlpha((int) ((1-progress)*255));
         mLeftPath.reset();
         mLeftPath.addCircle(mHeight/2+mGap*progress, mHeight/2, mHeight/2-circleStroke, Path.Direction.CW);
@@ -174,8 +182,6 @@ public class SubCartView extends View {
         int action = event.getAction();
         switch (action){
             case MotionEvent.ACTION_DOWN:
-                float x_down = event.getX();
-                float y_down = event.getY();
                 return true;
             case MotionEvent.ACTION_MOVE:
                 break;
@@ -187,9 +193,15 @@ public class SubCartView extends View {
                 }else{
                     if (mRightRect.contains(x_up, y_up)){
                         increase();
+                        if (mQuantityChangedListener!=null){
+                            mQuantityChangedListener.quantityChanged(this, mQuantity, true);
+                        }
                     }
                     if (mLeftRectF.contains(x_up, y_up)){
                         decrease();
+                        if (mQuantityChangedListener!=null){
+                            mQuantityChangedListener.quantityChanged(this, mQuantity, false);
+                        }
                     }
                 }
                 return true;
@@ -252,7 +264,8 @@ public class SubCartView extends View {
         });
 
 
-        ValueAnimator leftCircleAnim = ValueAnimator.ofFloat(0, 1);
+        ValueAnimator leftCircleAnim = ValueAnimator.ofFloat(0, 1)
+                .setDuration(300);
         leftCircleAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -264,16 +277,26 @@ public class SubCartView extends View {
                 invalidate();
             }
         });
-        leftCircleAnim.setDuration(300).start();
+        leftCircleAnim.start();
     }
 
     public int getQuantity(){
+        if (isHint) return 0;
         return mQuantity;
     }
 
     public int sp2px(float spValue) {
         final float fontScale = getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
+    }
+
+    public void setQuantityChangedListener(QuantityChangedListener listener){
+        this.mQuantityChangedListener = listener;
+    }
+
+
+    interface QuantityChangedListener{
+        void quantityChanged(SubCartView subCartView, int quantity, boolean isIncrease);
     }
 
 
