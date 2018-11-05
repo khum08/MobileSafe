@@ -20,7 +20,7 @@ public class GlideActivity extends AppCompatActivity{
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private String[] tab_title = {"Circle","Rounded","Blur","Gray","Round_Gray"};
-    private VpAdapter mAdapter;
+    private com.kotlin.khum.mobilesafe.ui.glideDemo.VpAdapter mAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class GlideActivity extends AppCompatActivity{
     }
 
     private void initTab() {
-        mAdapter = new VpAdapter(getSupportFragmentManager(), tab_title);
+        mAdapter = new com.kotlin.khum.mobilesafe.ui.glideDemo.VpAdapter(getSupportFragmentManager(), tab_title);
         mViewPager.setAdapter(mAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
     }

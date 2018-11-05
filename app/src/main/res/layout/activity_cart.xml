@@ -4,22 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.kotlin.khum.mobilesafe.ui.customview.CartView
-        android:id="@+id/cv"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cart_background="@color/colorPrimary"
-        app:text="加入购物车"
-        app:textColor="@color/color_white"
-        />
+
     <com.kotlin.khum.mobilesafe.ui.customview.SubCartView
         android:id="@+id/scv"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        app:layout_constraintTop_toBottomOf="@id/cv"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:svc_circleColor="#666"
@@ -39,6 +29,18 @@
         app:layout_constraintRight_toRightOf="parent"
         android:text="获取数量"
         android:layout_marginTop="30dp"
+        />
+
+    <com.kotlin.khum.mobilesafe.ui.customview.CartView
+        android:id="@+id/cv"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:cart_background="@color/colorPrimary"
+        app:text="购物车"
+        app:textColor="@color/color_white"
         />
 
 </android.support.constraint.ConstraintLayout>

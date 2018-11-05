@@ -1,5 +1,7 @@
 package com.kotlin.khum.mobilesafe.ui.main;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -84,11 +86,29 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, GlideActivity.class));
                 break;
             case 13:
+                showDialog();
                 break;
             default:
                 Toast.makeText(this,"click position="+recycler_view.getChildAdapterPosition(view),Toast.LENGTH_LONG).show();
                 break;
         }
+    }
+
+    private void showDialog() {
+        new AlertDialog.Builder(this)
+                .setMessage("你是猪")
+                .setTitle("Title")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Yes", Toast.LENGTH_SHORT).show();
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).show();
     }
 
     private void findView() {

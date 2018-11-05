@@ -25,6 +25,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 ext {
     support_version = '27.1.1'
@@ -36,7 +40,7 @@ kapt {
     }
 }
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:design:27.1.1'
@@ -45,13 +49,16 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "com.android.support:recyclerview-v7:$support_version"
-    implementation "com.github.bumptech.glide:glide:3.7.0"
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'jp.wasabeef:glide-transformations:2.0.1'
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.android.support:design:$support_version"
     implementation 'org.greenrobot:eventbus:3.1.1'
-    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34"
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    //热修复
+    compile 'com.aliyun.ams:alicloud-android-hotfix:3.2.3'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     debugImplementation 'me.ele:uetool:1.0.15'
     releaseImplementation 'me.ele:uetool-no-op:1.0.15'
 //    implementation 'com.jakewharton:butterknife:8.8.1'
@@ -59,5 +66,5 @@ dependencies {
     //arouter
     implementation 'com.alibaba:arouter-api:1.4.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
-    kapt 'com.alibaba:arouter-compiler:1.2.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
 }
