@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.kotlin.khum.mobilesafe.ui.customview.SubCartView
+    <com.kotlin.khum.mobilesafe.ui.customview.CartView
         android:id="@+id/scv"
         android:layout_width="100dp"
         android:layout_height="30dp"
@@ -31,7 +31,7 @@
         android:layout_marginTop="30dp"
         />
 
-    <com.kotlin.khum.mobilesafe.ui.customview.CartView
+    <com.kotlin.khum.mobilesafe.ui.customview.MyCartView
         android:id="@+id/cv"
         android:layout_width="100dp"
         android:layout_height="50dp"

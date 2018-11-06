@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.kotlin.khum.mobilesafe.R;
+import com.kotlin.khum.mobilesafe.animator.ProgressActivity;
 import com.kotlin.khum.mobilesafe.global.BaseActivity;
 
 /**
@@ -27,6 +28,12 @@ public class ViewActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 CartActivity.launch(ViewActivity.this);
+            }
+        });
+        findViewById(R.id.test2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProgressActivity.starter(ViewActivity.this);
             }
         });
 

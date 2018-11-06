@@ -58,6 +58,7 @@
         <activity android:name=".ui.glideDemo.GlideActivity"/>
         <activity android:name=".ui.arouter.ArouterActivity"/>
         <activity android:name=".ui.customview.ViewActivity"/>
+        <activity android:name=".animator.ProgressActivity"/>
     </application>
 
 </manifest>
