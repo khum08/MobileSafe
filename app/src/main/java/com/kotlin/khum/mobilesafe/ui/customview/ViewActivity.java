@@ -37,6 +37,13 @@ public class ViewActivity extends BaseActivity {
             }
         });
 
+        findViewById(R.id.test3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FlowLayoutActivity.starter(ViewActivity.this);
+            }
+        });
+
     }
 
     @Override

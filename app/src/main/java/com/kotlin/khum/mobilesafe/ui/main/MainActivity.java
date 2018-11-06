@@ -3,6 +3,8 @@ package com.kotlin.khum.mobilesafe.ui.main;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -35,6 +37,12 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         findView();
         initRecyclerView();
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+        super.onCreate(savedInstanceState);
     }
 
     private void initRecyclerView() {
