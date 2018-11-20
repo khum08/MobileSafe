@@ -1,5 +1,7 @@
 package com.kotlin.khum.mobilesafe.multiThread;
 
+import java.util.Random;
+import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -10,15 +12,35 @@ import java.util.concurrent.ArrayBlockingQueue;
  * </pre>
  */
 public class ProducerAndCustomer {
+    static Random sRandom = new Random();
 
     public static void main(String[] arg){
         Hub hub = new Hub(60);
         Producer producer = new Producer(hub);
-        Customer customer;
-        for(int i = 0; i < 20; i++){
-            customer = new Customer(hub);
-            hub.connect(customer);
-        }
+        new Thread(){
+            @Override
+            public void run() {
+                for(int i = 0; i < 20; i++){
+                    try {
+                        Thread.sleep(sRandom.nextInt(10000));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Customer customer = new Customer(hub);
+                    hub.connect(customer);
+                }
+            }
+        }.start();
+
+        TimerTask task = new TimerTask(){
+            @Override
+            public void run() {
+//                System.out.println("timetask is running");
+                producer.produce();
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(task, 0, 1000);
     }
 
 }
@@ -26,12 +48,18 @@ public class ProducerAndCustomer {
 //仓库
 class Hub{
 
-    private int capacity;//仓库容量
+    private int capacity = 60;//仓库容量
     private int size; //仓库实际大小
     ArrayBlockingQueue<Customer> mQueue;
     public Hub(int capacity){
         this.capacity = capacity;
         mQueue = new ArrayBlockingQueue<>(60);
+        new Thread(){
+            @Override
+            public void run() {
+                consume();
+            }
+        }.start();
     }
 
     public void connect(Customer customer){
@@ -45,21 +73,34 @@ class Hub{
                 wait();
             }
             size++;
-            notifyAll();
+            System.out.println("produced; current size is "+ size);
+            notify();
         }catch (InterruptedException e){
             e.printStackTrace();
         }
     }
     //消费
-    synchronized void consume(){
-        try{
-            while (size<=0){
-                wait();
+    synchronized void consume() {
+        while (true) {
+            if (size<=0){
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-            mQueue.poll();
-            size--;
-        }catch (InterruptedException e){
-            e.printStackTrace();
+            Customer poll = null;
+            try {
+                poll = mQueue.take();
+            } catch (InterruptedException e) {
+                notify();
+                e.printStackTrace();
+            }
+            size = poll.consume(size);
+            if (size<60){
+                notify();
+            }
+            System.out.println("consumed; current size is " + size);
         }
     }
 }
@@ -72,19 +113,7 @@ class Producer{
         this.hub = hub;
     }
     public void produce(){
-        TimerTask timerTask = new TimerTask(){
-
-            @Override
-            public void run() {
-
-            }
-        };
-        new Thread(){
-            @Override
-            public void run() {
-                hub.produce();
-            }
-        }.start();
+        hub.produce();
     }
 }
 class Customer{
@@ -94,12 +123,8 @@ class Customer{
     public Customer(Hub hub){
         this.hub = hub;
     }
-    public void consume(){
-        new Thread(){
-            @Override
-            public void run() {
-                hub.consume();
-            }
-        }.start();
+    public int consume(int size){
+        --size;
+        return size;
     }
 }

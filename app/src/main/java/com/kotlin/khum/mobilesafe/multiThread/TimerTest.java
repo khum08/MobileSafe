@@ -6,7 +6,7 @@ import java.util.TimerTask;
 /**
  * <pre>
  *     author : khum
- *     desc   :
+ *     desc   : 计时器的使用
  * </pre>
  */
 public class TimerTest {
