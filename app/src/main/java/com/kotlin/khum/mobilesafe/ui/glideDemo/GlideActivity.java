@@ -3,8 +3,10 @@ package com.kotlin.khum.mobilesafe.ui.glideDemo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseArray;
 
 import com.kotlin.khum.mobilesafe.R;
 
@@ -41,4 +43,16 @@ public class GlideActivity extends AppCompatActivity{
         mViewPager = findViewById(R.id.viewpager);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SparseArray<Fragment> fragmentMaps = FragmentFactory.fragmentMaps;
+        Fragment fragment;
+        for(int i = 0; i < fragmentMaps.size(); i++){
+            fragment = fragmentMaps.get(i);
+            fragment = null;
+        }
+        fragmentMaps.clear();
+        fragmentMaps = null;
+    }
 }

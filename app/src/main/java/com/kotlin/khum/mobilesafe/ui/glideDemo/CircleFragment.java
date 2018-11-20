@@ -21,13 +21,16 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  *     desc   :
  * </pre>
  */
-public class CircleFragment extends Fragment {
+public class CircleFragment extends BaseFragment {
 
-    private static Fragment instance = new CircleFragment();
     private View rootView;
     private ImageView mImageView;
+    public static BaseFragment instance;
 
     public static Fragment getInstance(){
+        if (instance == null){
+            new CircleFragment();
+        }
         return instance;
     }
 

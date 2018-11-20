@@ -22,14 +22,16 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
  *     desc   :
  * </pre>
  */
-public class RoundedAndGrayFragment extends Fragment {
+public class RoundedAndGrayFragment extends BaseFragment {
 
     private View mRootView;
     private ImageView mImage_view;
-
-    private static Fragment instance = new RoundedAndGrayFragment();
+    public static BaseFragment instance;
 
     public static Fragment getInstance(){
+        if (instance == null){
+            new RoundedAndGrayFragment();
+        }
         return instance;
     }
 

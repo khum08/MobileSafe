@@ -12,12 +12,18 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [eventBusIndex: 'com.khum.test.MyEventBusIndex']
+            }
+        }
 //        javaCompileOptions {
 //            annotationProcessorOptions {
 //                arguments = [ AROUTER_MODULE_NAME : project.getName() ,AROUTER_GENERATE_DOC : "enable" ]
 //                includeCompileClasspath false
 //            }
 //        }
+
     }
     buildTypes {
         release {
@@ -72,4 +78,7 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     // Optional, if you use support library fragments:
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    kapt 'org.greenrobot:eventbus-annotation-processor:3.1.1'
 }

@@ -3,8 +3,11 @@ package com.kotlin.khum.mobilesafe.global;
 import android.app.Application;
 import android.content.Context;
 
+import com.khum.test.MyEventBusIndex;
 import com.kotlin.khum.mobilesafe.util.FirstInitUtils;
 import com.squareup.leakcanary.RefWatcher;
+
+import org.greenrobot.eventbus.EventBus;
 
 
 /**
@@ -31,6 +34,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         mRefWatcher = FirstInitUtils.init(this);
+        EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
     }
 
     private void initArouter() {

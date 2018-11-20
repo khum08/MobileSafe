@@ -1,13 +1,14 @@
 package com.kotlin.khum.mobilesafe.ui.imageloader;
 
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.kotlin.khum.mobilesafe.R;
 import com.kotlin.khum.mobilesafe.global.BaseActivity;
 
-import jp.wasabeef.glide.transformations.CropCircleTransformation;
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * <pre>
@@ -18,28 +19,45 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
  */
 public class ImageLoaderActivity extends BaseActivity {
 
-    private ImageView mIv_1;
-    private ImageView mIv_2;
-    private String url_1 = "https://kun-image.oss-cn-hangzhou.aliyuncs.com/piao1.jpg";
-    private String url_2 = "https://kun-image.oss-cn-hangzhou.aliyuncs.com/piao1.jpg";
-
+    private TextView mTextView;
+    String[] data = {"山大", "北大", "清华", "复旦"};
+    int status = 0;
 
     @Override
     protected void initView() {
-        mIv_1 = findViewById(R.id.iv_1);
-        mIv_2 = findViewById(R.id.iv_2);
-        renderView();
+        findViewById(R.id.tv_test1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new EventTest(data[status]));
+                status++;
+                if (status>3) status=0;
+            }
+        });
+        mTextView = findViewById(R.id.tv_test2);
     }
 
-    private void renderView(){
-        Glide.with(this).load(url_1).centerCrop().error(R.mipmap.ic_launcher)
-                .bitmapTransform(new CropCircleTransformation(this))
-                .into(mIv_1);
-
-        Glide.with(this).load(url_2).error(R.mipmap.ic_launcher)
-                .bitmapTransform(new RoundedCornersTransformation(this,20,0))
-                .into(mIv_2);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
     }
+
+    @Override
+    protected void onPause() {
+        EventBus.getDefault().unregister(this);
+        super.onPause();
+    }
+
+    @Subscribe
+    public void onEvent(EventTest test){
+        mTextView.setText(test.test);
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onEventSticky(EventTest test){
+        mTextView.setText(test.test);
+    }
+
 
     @Override
     protected int attachLayoutRes() {

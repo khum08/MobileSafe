@@ -6,22 +6,28 @@
     android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/iv_1"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-
-    <ImageView
-        android:id="@+id/iv_2"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_1"
-        />
+   <TextView
+       android:id="@+id/tv_test1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="带索引的EventBus"
+       android:gravity="center"
+       android:padding="@dimen/dp_10"
+       android:background="@android:color/darker_gray"
+       android:layout_marginTop="@dimen/dp_10"
+       app:layout_constraintTop_toTopOf="parent"
+       />
+   <TextView
+       android:id="@+id/tv_test2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="TEST2"
+       android:gravity="center"
+       android:padding="@dimen/dp_10"
+       android:background="@android:color/darker_gray"
+       android:layout_marginTop="@dimen/dp_10"
+       app:layout_constraintTop_toBottomOf="@id/tv_test1"
+       />
 
 
 </android.support.constraint.ConstraintLayout>

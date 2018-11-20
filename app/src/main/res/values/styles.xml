@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--====================================================
     存放activity主题
        ===================================================-->
@@ -8,6 +8,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+        <item name="android:windowEnterAnimation">@transition/activity_fade</item>
+        <item name="android:windowExitAnimation">@transition/activity_slide</item>
     </style>
     <style name="LaunchTheme" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
     </style>

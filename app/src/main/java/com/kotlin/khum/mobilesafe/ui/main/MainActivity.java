@@ -19,10 +19,14 @@ import com.kotlin.khum.mobilesafe.ui.customview.ViewActivity;
 import com.kotlin.khum.mobilesafe.ui.glideDemo.GlideActivity;
 import com.kotlin.khum.mobilesafe.ui.guard.GuardActivity;
 import com.kotlin.khum.mobilesafe.ui.home.Main2Activity;
+import com.kotlin.khum.mobilesafe.ui.imageloader.EventTest;
 import com.kotlin.khum.mobilesafe.ui.imageloader.ImageLoaderActivity;
 import com.kotlin.khum.mobilesafe.ui.processmanager.ProcessManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
 import com.kotlin.khum.mobilesafe.ui.traffic.TrafficActivity;
+import com.kotlin.khum.mobilesafe.ui.transition.TransitionActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 
 public class MainActivity extends BaseActivity {
@@ -39,10 +43,12 @@ public class MainActivity extends BaseActivity {
         initRecyclerView();
     }
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().postSticky(new EventTest("STICKY EVENT"));
     }
 
     private void initRecyclerView() {
@@ -72,6 +78,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 4:
                 TrafficActivity.start(this);
+                break;
+            case 5:
+                startActivity(new Intent(this, TransitionActivity.class));
                 break;
             case 6:
                 break;

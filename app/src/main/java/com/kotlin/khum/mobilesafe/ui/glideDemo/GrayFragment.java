@@ -20,14 +20,17 @@ import jp.wasabeef.glide.transformations.GrayscaleTransformation;
  *     desc   :
  * </pre>
  */
-public class GrayFragment extends Fragment {
+public class GrayFragment extends BaseFragment {
 
     private View mRootView;
     private ImageView mImageView;
-    private static Fragment sInstance = new GrayFragment();
+    public static BaseFragment instance;
 
     public static Fragment getInstance() {
-        return sInstance;
+        if (instance == null){
+            new GrayFragment();
+        }
+        return instance;
     }
 
     @Nullable

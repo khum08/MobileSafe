@@ -21,13 +21,16 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
  *     desc   :
  * </pre>
  */
-public class BlurFragment extends Fragment{
+public class BlurFragment extends BaseFragment{
 
-    private static Fragment instance = new BlurFragment();
     private ImageView mImageView;
     private View rootView;
+    public static BaseFragment instance;
 
     public static Fragment getInstance(){
+        if (instance==null){
+            instance = new BlurFragment();
+        }
         return instance;
     }
 
@@ -41,4 +44,6 @@ public class BlurFragment extends Fragment{
                 .into(mImageView);
         return rootView;
     }
+
+
 }
