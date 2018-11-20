@@ -65,6 +65,7 @@
         <activity android:name=".ui.transition.TransitionActivity"/>
         <activity android:name=".ui.transition.TransitionTest1Activity">
         </activity>
+        <activity android:name=".ui.mvvm.MvvmActivity"/>
     </application>
 
 </manifest>

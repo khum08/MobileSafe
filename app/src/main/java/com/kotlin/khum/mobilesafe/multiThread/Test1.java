@@ -14,10 +14,11 @@ public class Test1 {
         System.out.println(Thread.currentThread().getName());
         MyThread thread = new MyThread();
         thread.start();
+        //等待thread执行完成
         thread.join();
         System.out.println("this is main thread");
 
-        defaultDeliveryTime();
+//        defaultDeliveryTime();
     }
 
     private static void defaultDeliveryTime() {
@@ -46,11 +47,12 @@ public class Test1 {
         @Override
         public void run() {
             try {
-                sleep(10);
+                System.out.println("i am second thread:" + Thread.currentThread().getName());
+                //sleep不会释放monitor对象，而await会立刻释放
+                sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("i am second thread:" + Thread.currentThread().getName());
         }
     }
 

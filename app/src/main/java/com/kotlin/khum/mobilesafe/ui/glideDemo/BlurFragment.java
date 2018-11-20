@@ -45,5 +45,9 @@ public class BlurFragment extends BaseFragment{
         return rootView;
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        instance = null;
+    }
 }

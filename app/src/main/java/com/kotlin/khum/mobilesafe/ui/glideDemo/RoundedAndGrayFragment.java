@@ -48,4 +48,10 @@ public class RoundedAndGrayFragment extends BaseFragment {
 
         return mRootView;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        instance = null;
+    }
 }

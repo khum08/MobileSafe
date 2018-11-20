@@ -45,4 +45,10 @@ public class RoundedFragment extends BaseFragment {
                 .into(mImageView);
         return rootView;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        instance = null;
+    }
 }
