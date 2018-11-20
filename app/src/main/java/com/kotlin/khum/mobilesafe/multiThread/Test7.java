@@ -8,6 +8,7 @@ import java.util.concurrent.CyclicBarrier;
  * <pre>
  *     author : khum
  *     desc   : 多个线程相互等待 同时起跑
+ *     CyclicBarrier可以重用，而countDownLatch不能重用？
  * </pre>
  */
 public class Test7 {

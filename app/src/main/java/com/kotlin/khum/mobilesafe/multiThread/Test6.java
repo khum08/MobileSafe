@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * <pre>
  *     author : khum
- *     desc   : 一个线程去等待多个线程 CountDownLatch
+ *     desc   : 一个线程去等待多个线程完成后继续 CountDownLatch
  * </pre>
  */
 public class Test6 {
@@ -38,7 +38,7 @@ class Thread6 extends Thread{
     public void run() {
         if (this.getName().equals("A")){
             try {
-                countDownLatch.await();
+                countDownLatch.await();//阻塞当前线程
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -47,7 +47,7 @@ class Thread6 extends Thread{
             System.out.println(this.getName()+":"+i);
         }
         if (!this.getName().equals("A")){
-            countDownLatch.countDown();
+            countDownLatch.countDown();//唤醒当前线程
         }
     }
 }

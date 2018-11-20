@@ -45,9 +45,4 @@ public class GrayFragment extends BaseFragment {
         return mRootView;
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        sInstance = null;
-    }
 }
