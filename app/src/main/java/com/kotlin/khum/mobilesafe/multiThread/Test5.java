@@ -39,7 +39,7 @@ class Thread5 extends Thread{
                         e.printStackTrace();
                     }
                 }
-                if (i==3 && this.getName().equals("B")){
+                if (i==2 && this.getName().equals("B")){
                     lock.notify();
                 }
             }

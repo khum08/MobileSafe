@@ -23,6 +23,7 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  */
 public class CircleFragment extends Fragment {
 
+    //这种单例模式易造成instance无法被回收，从而导致内存泄漏
     private static Fragment instance = new CircleFragment();
     private View rootView;
     private ImageView mImageView;

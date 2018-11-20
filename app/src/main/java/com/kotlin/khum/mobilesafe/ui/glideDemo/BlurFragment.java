@@ -41,4 +41,10 @@ public class BlurFragment extends Fragment{
                 .into(mImageView);
         return rootView;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        instance = null;
+    }
 }

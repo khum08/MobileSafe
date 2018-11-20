@@ -20,6 +20,7 @@ import com.kotlin.khum.mobilesafe.ui.glideDemo.GlideActivity;
 import com.kotlin.khum.mobilesafe.ui.guard.GuardActivity;
 import com.kotlin.khum.mobilesafe.ui.home.Main2Activity;
 import com.kotlin.khum.mobilesafe.ui.imageloader.ImageLoaderActivity;
+import com.kotlin.khum.mobilesafe.ui.mvvm.MvvmActivity;
 import com.kotlin.khum.mobilesafe.ui.processmanager.ProcessManagerActivity;
 import com.kotlin.khum.mobilesafe.ui.setting.SettingActivity;
 import com.kotlin.khum.mobilesafe.ui.traffic.TrafficActivity;
@@ -74,6 +75,7 @@ public class MainActivity extends BaseActivity {
                 TrafficActivity.start(this);
                 break;
             case 6:
+                MvvmActivity.starter(this);
                 break;
             case 7:
                 startActivity(new Intent(this, Main2Activity.class));
