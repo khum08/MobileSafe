@@ -16,6 +16,7 @@ public class Test7 {
     public static void main(String[] arg){
         CyclicBarrier cyclicBarrier = new CyclicBarrier(4);
 
+        
         Thread7 t1 = new Thread7("A", cyclicBarrier);
         Thread7 t2 = new Thread7("B", cyclicBarrier);
         Thread7 t3 = new Thread7("C", cyclicBarrier);
