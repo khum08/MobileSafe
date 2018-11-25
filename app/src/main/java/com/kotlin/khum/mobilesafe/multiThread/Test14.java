@@ -1,5 +1,8 @@
 package com.kotlin.khum.mobilesafe.multiThread;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * <pre>
  *     author : khum
@@ -12,8 +15,10 @@ public class Test14 {
         ThreadE t1 = new ThreadE("normal thread");
         DaemonThread t2 = new DaemonThread("daemon thread");
         t2.setDaemon(true);
-        t1.start();
-        t2.start();
+        //放入线程池中后设置的线程名就没用了
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        executorService.execute(t1);
+        executorService.execute(t2);
         System.out.println(Thread.currentThread().getName()+" is over");
     }
 
