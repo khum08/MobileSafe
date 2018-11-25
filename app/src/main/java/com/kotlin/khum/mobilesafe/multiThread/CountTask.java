@@ -44,6 +44,7 @@ public class CountTask extends RecursiveTask<Integer> {
             int leftResult = leftTask.join();
             int rightResult = rightTask.join();
             sum = leftResult + rightResult;
+            
         }
         return sum;
     }
