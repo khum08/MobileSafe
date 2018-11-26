@@ -18,12 +18,12 @@ public class BackTracking {
         pailie(test,"");
     }
     static void pailie(String s, String temp){
-        if (s.length()==0){
+        if (s.length() == 0){
             System.out.println(temp);
             return;
         }
         for(int i=0; i<s.length(); i++){
-            String newString = s.substring(0,i) + s.substring(i+1, s.length());
+            String newString = s.substring(0, i) + s.substring(i+1, s.length());
             pailie(newString, temp+s.charAt(i));
         }
     }
