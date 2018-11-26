@@ -23,7 +23,7 @@ public class BackTracking {
             return;
         }
         for(int i=0; i<s.length(); i++){
-            String newString = s.substring(0,i)+s.substring(i+1, s.length());
+            String newString = s.substring(0,i) + s.substring(i+1, s.length());
             pailie(newString, temp+s.charAt(i));
         }
     }
