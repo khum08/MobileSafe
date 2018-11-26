@@ -49,10 +49,10 @@ public class CountTask extends RecursiveTask<Integer> {
     }
 
     public static void main(String[] arg){
-        int testEnd = 100000;
+        int testEnd = 1000000;
         long start = System.currentTimeMillis();
         ForkJoinPool forkJoinPool = new ForkJoinPool();
-        CountTask countTask = new CountTask(-testEnd, testEnd);
+        CountTask countTask = new CountTask(0, testEnd);
         ForkJoinTask<Integer> result = forkJoinPool.submit(countTask);
         try {
             System.out.println("ForkJoin:"+result.get());
@@ -65,7 +65,7 @@ public class CountTask extends RecursiveTask<Integer> {
         long start1 = System.currentTimeMillis();
         System.out.println("ForkJoin:"+(end-start));
         int sum = 0;
-        for(int i = -testEnd; i <= testEnd; i++){
+        for(int i = 0; i <= testEnd; i++){
             sum += i;
         }
         System.out.println("Loop:"+sum);
